@@ -31,7 +31,7 @@ end
 def send_sms(who = nil)
     account_sid = ENV['ACCOUNT_SID']
     auth_token = ENV['AUTH_TOKEN']
-    puts account_sid
+    logger.info account_sid
     @client = Twilio::REST::Client.new(account_sid, auth_token)
     if who == 'james'
         message = @client.messages.create(from: ENV['TWILIO_NUM'], body: 'Someone just entered', to: ENV['JAMES_NUM'])
