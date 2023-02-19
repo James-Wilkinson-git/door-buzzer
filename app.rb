@@ -28,7 +28,7 @@ post '/verify' do
     response.to_s
 end
 
-def send_sms(who)
+def send_sms(who = nil)
     account_sid = ENV['ACCOUNT_SID']
     auth_token = ENV['AUTH_TOKEN']
     @client = Twilio::REST::Client.new(account_sid, auth_token)
